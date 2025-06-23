@@ -229,6 +229,7 @@ h1 {
 .cart-page p {
   font-size: 1.2rem;
   color: #666;
+  color: var(--text-color);
 }
 
 .cart-list {
@@ -249,7 +250,7 @@ h1 {
   border-bottom: none;
 }
 
-.checkout-btn {
+/* .checkout-btn {
   padding: 0.8rem 2rem;
   font-size: 1.2rem;
   font-weight: 600;
@@ -262,4 +263,54 @@ h1 {
 
 .checkout-btn:hover {
   background-color: #ddb347;
+}
+
+.clear-btn {
+  background-color: #e04e4e;
+  color: white;
+   padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 1px solid #e04e4e;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.clear-btn:hover {
+  background-color: #b03939;
+} */
+
+.cart-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.checkout-btn, .clear-btn {
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-btn {
+  background-color: #5f7f3e;
+  color: white;
+}
+
+.checkout-btn:hover {
+  background-color: #4a6630;
+}
+
+.clear-btn {
+  background-color: #e04e4e;
+  color: white;
+}
+
+.clear-btn:hover {
+  background-color: #b03939;
 }

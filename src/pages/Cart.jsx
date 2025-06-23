@@ -1,12 +1,11 @@
 import {useContext} from 'react';
 import { CartContext } from '../context/CartContext';
-import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 
 const Cart = () => {
-    const {cart} = useContext(CartContext);
+    const {cart, clearCart} = useContext(CartContext);
 
-const navigate = useNavigate();
+    const total = cart.reduce((sum, item) => sum + item.price, 0)
 
     return (
      <div className="cart-page">
@@ -24,11 +23,15 @@ const navigate = useNavigate();
               </li>
             ))}
           </ul>
+          <p className='total'><strong>Total : </strong>{total} €</p>
+          <div className="cart-buttons">
           <button className="checkout-btn">Valider le panier</button>
+          <button className='clear-btn' onClick={clearCart}>Vider le panier</button>
+          </div>
         </>
       )}
-    </div>
+      </div>
     );
 };
-
+console.log('Contenu du panier', Cart);
 export default Cart;
