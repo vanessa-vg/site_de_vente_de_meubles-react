@@ -1,16 +1,7 @@
-import { useContext } from 'react';
-import {CartContext} from '../context/CartContext'
 import {Link} from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import BuyButton from './BuyButton';
 
 const ProductCard = ({product}) => {
-    const {addToCart} = useContext(CartContext);
-    const navigate = useNavigate();
-
-    const handleBuy = () => {
-        addToCart(product);
-        navigate('/cart');
-    };
 
     return (
         <div className="product-card">
@@ -22,7 +13,7 @@ const ProductCard = ({product}) => {
             <button className="infos-btn">Plus d'infos</button>
             </Link>
 
-            <button className="buy-btn" onClick={handleBuy}>Acheter</button>
+            <BuyButton product={product} />
         </div>
     );
 };

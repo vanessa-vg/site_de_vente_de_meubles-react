@@ -1,7 +1,7 @@
-import {useParams, useNavigate} from 'react-router-dom';
-import {useState, useContext} from 'react';
-import {CartContext} from '../context/CartContext';
-
+import {useParams} from 'react-router-dom';
+import { useState } from 'react';
+import BuyButton from '../components/BuyButton';
+import BackButton from '../components/BackButton';
 
 const dummyProducts = [
   {
@@ -112,25 +112,15 @@ const dummyProducts = [
 
 const ProductPage = () => {
   const { id } = useParams(); // récupère l’id de l’URL
-  const navigate = useNavigate();
- 
-  const { addToCart } = useContext(CartContext);
 
-  const handleBuy = () => {
-  addToCart(product);       // ajoute le produit au panier
-  navigate('/cart');      // redirige vers la page panier
-};
   const product = dummyProducts.find(p => p.id === parseInt(id));
   const [mainImage, setMainImage] = useState(product.image);
 
   if (!product) return <p>Produit introuvable</p>;
 
   return (
-   <div className="product-page">
-      <button className="back-btn" onClick={() => navigate('/')}>
-        ⬅️ Retour à la boutique
-      </button>
-      <div className="product-content">
+    <div className="product-content">
+        <BackButton />
         <div className="product-left">
           <img className="product-image" src={mainImage} alt={product.nameOfProduct} />
 
@@ -155,10 +145,9 @@ const ProductPage = () => {
       <p><strong>Dimensions :</strong> {product.dimensions}</p>
       <p><strong>Couleur :</strong> {product.color}</p>
       <p><strong>État :</strong> {product.condition}</p>
-      <button className="buy-btn" onClick={handleBuy}>Acheter</button>
+      <BuyButton product={product}/>
     </div>
   </div>
-    </div>
   );
 };
 

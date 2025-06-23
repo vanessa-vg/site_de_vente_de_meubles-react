@@ -1,6 +1,7 @@
 import {useContext} from 'react';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import BackButton from '../components/BackButton';
 
 const Cart = () => {
     const {cart} = useContext(CartContext);
@@ -9,9 +10,7 @@ const navigate = useNavigate();
 
     return (
      <div className="cart-page">
-      <button className="back-btn" onClick={() => navigate('/')}>
-        ⬅️ Retour à la boutique
-      </button>
+     <BackButton />
       <h1>Votre panier</h1>
       {cart.length === 0 ? (
         <p>Votre panier est vide</p>
